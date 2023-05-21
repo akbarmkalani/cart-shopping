@@ -1,0 +1,158 @@
+main {
+  background-color: #bbb8bb;
+}
+main > nav {
+  height: 90px;
+  position: fixed;
+  top: 0;
+  background-color: #F5F5F5;
+  z-index: 12;
+}
+main > nav > div > ul > li {
+  list-style-type: none;
+}
+main > nav > div > ul > li > input {
+  height: 40px !important;
+  width: 275px !important;
+  border: none;
+  outline: none;
+  padding-left: 12px;
+  border-radius: 12px;
+  /*   &::placeholder{
+        padding-left: 10px;
+    } */
+}
+main > nav > div > ul > li > button {
+  border: none;
+  outline: none;
+  font-size: 35px;
+  color: #6AA334;
+}
+main > nav > div > ul > li > a {
+  font-size: 35px;
+  color: #6AA334;
+}
+main > nav > div > ul > li > a:hover {
+  color: #6AA334;
+}
+main > nav > div > ul > li > a:hover > i {
+  transform: scale(1.1);
+}
+main > nav > div > ul > li > a > #cartNumbers {
+  width: 20px;
+  height: 20px;
+  background-color: #6AA334;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  right: 15px;
+  top: 20px;
+}
+main ._serach {
+  position: fixed !important;
+  margin-top: 75px;
+  background-color: rgba(187, 184, 187, 0.7843137255);
+  z-index: 23;
+}
+main .product {
+  margin-top: 90px;
+}
+main .product > figure {
+  width: 400px !important;
+  border: 1px solid #848484;
+  border-radius: 12px;
+}
+main .product > figure:hover > img {
+  transform: scale(1.1);
+}
+main .product > figure > img {
+  border-radius: 12px;
+  height: 300px;
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.5s;
+}
+main .product > figure > figcaption > div:nth-of-type(1) > strong {
+  font-weight: bold;
+  font-size: 27px;
+}
+main .product > figure > figcaption > div:nth-of-type(2) > span {
+  color: #a37c34;
+}
+main .product > figure > figcaption > div:nth-of-type(2) > span:nth-of-type(2) {
+  color: #848484;
+}
+main .product > figure > figcaption > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 170px;
+  border: 1px solid #848484;
+  border-radius: 12px;
+  color: #050532;
+  background-color: #6AA334;
+  text-decoration: none;
+  transition: 0.5s;
+  text-transform: capitalize;
+  font-weight: 800;
+}
+main .product > figure > figcaption > button:hover {
+  color: white;
+}
+main .txt {
+  height: 90px !important;
+}
+main #_cartNumber {
+  font-weight: bold;
+  margin: 0 4px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  background-color: #6AA334;
+  border-radius: 50%;
+  color: #050532;
+  padding: 5px;
+}
+main > aside {
+  overflow: auto;
+  transform: translateX(100%);
+  background-color: #F5F5F5;
+  transition: 0.6s;
+  top: 0;
+  right: 0;
+  z-index: 13;
+  height: 100%;
+}
+main > aside > div > button {
+  border: none;
+  outline: none;
+  width: 150px !important;
+  height: 40px !important;
+  font-weight: bold;
+  background-color: #6AA334;
+  border-radius: 10px;
+}
+main > aside > div > span {
+  font-size: 27px;
+  color: #848484;
+}
+main > aside > div > h4 {
+  color: #050532;
+}
+main > aside > section > div > li > div > p {
+  font-size: 18px;
+  font-weight: bold;
+}
+main > aside > section > div > li > section > input {
+  border: none;
+}
+main > aside > section > span {
+  font-size: 25px;
+  font-weight: bold;
+  color: #050532;
+}/*# sourceMappingURL=style.css.map */

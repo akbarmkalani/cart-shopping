@@ -6,84 +6,133 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- CDN Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/styel.css">
 </head>
 
 <body>
 
 
-    <main class="container-fluid bg-danger position-relative">
-        <section class="row justify-content-center position-relative" id="searchBox">
-            <div class="col-8 mx-auto  py-5">
-                <section class="row justify-content-center">
-                    <input class="col-6" type="search" name="" id="input" placeholder="Enter Your Countery">
-                    <button class="col-2 " onclick="_para()">Search<!-- <i class="bi bi-search"></i> --></button>
-                    <span class="search col-8 d-flex   justify-content-end text-danger"></span>
-                </section>
-
-            </div>
-            <section class="col-10  ">
-                <ul class="row justify-content-lg-center " id="list">
-                    <li class="col-8 ">
-                        <!--  <div class="row  justify-content-around">
-                            <h2 class="text-center">Afghanistan</h2>
-                            <span class="d-flex mx-3  col-3">Capital</span>
-                            <span class="d-flex mx-3  col-3">languages</span>
-                            <span class="d-flex mx-3  col-3"> region</span>
-                            <span class="d-flex mx-3  col-3"> altSpellings</span>
-                            <span class="d-flex mx-3  col-3"> subregion</span>
-                            <span class="d-flex mx-3  col-3"> currencies</span>
-                            <span class="d-flex mx-3  col-3"> nativeName</span>
-                            <span class="d-flex mx-3  col-3"> timezones</span>
-                            <span class="d-flex mx-3  col-3"> official</span>
-                            <span class="d-flex mx-3  col-3"> continents</span>
-                            <span class="d-flex mx-3  col-3"> startOfWeek</span>
-                            <span class="d-flex mx-3  col-3"> regex</span>
-                             <img class="col-5 mt-2" src="assets/img/deco-2380016_1280.jpg" alt="flag">
-                             <img class="col-5 mt-2" src="assets/img/deco-2380016_1280.jpg" alt="flag">
-                            
-                          </div>
-                        </li> -->
+    <main class="container-fluid mx-0 px-0 position-relative">
+        <nav class="col-12  ">
+            <div class="row mx-0 px-0 h-100 align-items-center justify-content-around">
+                <ul class="h-100 col-4 d-flex justify-content-center  ">
+                    <img class="w-50" src="assets/img/logo_b2c_header_se.svg" alt="">
                 </ul>
-            </section>
-        </section>
-        <div class="col-6 col-lg-4 mx-auto px-0 mx-0 p-5 position-relative" id="form">
-            <form action="" id="form" class="row p-4 justify-content-center mx-auto ">
-                <h1 class="text-center mt-3">Welcome</h1>
-                <input class="mt-4" type="text" id="user" placeholder="username">
-                <span id="usermsg"></span>
-                <input class="mt-4" type="password" id="pass" placeholder="password">
-                <span id="passmsg"></span>
-                <button type="submit" class="col-4 mt-4">Log in</button>
-                <span class="text-center" id="msgform"></span>
+                <ul class="h-100  col-8 d-flex align-items-center justify-content-end">
 
+                    <li class="mx-3 d-flex align-items-center h-100">
+                        <input type="text" placeholder="sreach" id="serach">
+                        <button onclick="serach()" class="h-100   d-flex justify-content-center align-items-center " href=""><i
+                                class="bi bi-search" ></i></button>
+                    </li>
+                    <li class="mx-3 col-1 h-100">
+                        <a class="h-100   d-flex justify-content-center align-items-center " href=""><i
+                                class="bi bi-person-fill"></i></a>
+                    </li>
+                    <li class="mx-3 col-1 h-100">
+                        <a class="h-100   d-flex justify-content-center position-relative align-items-center " href=""
+                            id="cart"><i class="bi bi-cart4"></i> <span class="position-absolute"
+                                id="cartNumbers">0</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <section class="row px-0 mx-0 my-3 justify-content-around">
+           
+            <div class="col-11 mx-auto">
+                <section class="row justify-content-around product">
+                    <!--    <figure class="col-4 mx-2 px-0 mx-0  ">
+                                    <img class="w-100" src="assets/img/img56.jpg" alt="">
 
-            </form>
-            <section class="row justify-content-center"><button onclick="para()" class="col-5  mt-4">forget your
-                    password </button></section>
-            <div class="col-9 token row justify-content-center overflow-hidden position-absolute">
-
-
-
-                <section class="mt-3 ">
-                    <span> You can use this username and password</span>
-                    <p class=" mt-2">
-                    <span>username</span>: <span>'kminchelle'</span>,
-
-                    </p>
-                    <p>
-                        <span>password</span>: <span>'0lelplR'</span>,
-                    </p>
+                                    <figcaption class="px-3 py-3 row justify-content-center">
+                                         <h4>Acer Nitro N50 i5-12/8/1024/1650 stationär dator för gaming</h4>
+                                         <div><strong>$2344</strong></div>
+                                         <div>
+                                            <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
+                                            <span>reviews</span>
+                                         </div>
+                                            
+                                            <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero eaque nesciunt molestias! Ipsam necessitatibus quaerat amet perferendis cum sint.</p>
+                                             <a id="addToCart"> add to <i class="bi bi-cart4"></i></a>
+                                    </figcaption>
+                                </figure>  -->
                 </section>
             </div>
-        </div>
+             
+            <ul class="row mx-0 px-0 justify-content-center position-absolute _serach" id="_ul">
+               <!--  <li class="col-8 row justify-content-center">
+                   <figure class="col-2 mx-0 px-0">
+                    <img class="w-100" src="/assets/img/img56.jpg" alt="">
+                   </figure>
+                    <div class="col-6">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <h4 class=" bg-danger">Lorem ipsum dolor sit amet.</h4>
+                        <strong>price</strong>
+
+                    </div>
+                </li> -->
+              </ul>
+        </section>
+
+
+        <aside class="p-2 col-7 col-lg-4  position-fixed aside">
+            <div class="row px-0 mx-0 mt-3 justify-content-end align-items-center">
+
+                <span class="d-flex  col-12 align-items-center justify-content-end " c><i class="bi bi-x-lg"></i></span>
+
+                <button class="d-flex justify-content-center align-items-center"> Buy New<i
+                        class="bi bi-cart4"></i></button>
+                <h4 class="d-flex align-items-center mt-2 h-100 col-12 ">Your shopping cart ( <span
+                        class="d-flex justify-content-center align-items-center" id="_cartNumber">0</span> products)
+                </h4>
+            </div>
+            <section class="row" id="lists">
+                <!--  <div class="row " id="cartList">
+                        <ul class="col-12 mt-3">
+                            <li class="row align-items-center">
+                               <div class="border-bottom row align-items-center">
+                                <figure class="col-3">
+                                    <img class="w-100" src="assets/img/img56.jpg" alt="">
+                               </figure>
+                               <p class="col-9">Acer Nitro N50 i5-12/8/1024/1650 stationär dator för gaming</p>
+                               </div>
+                                <section class="row justify-content-around ">
+                                    <input class="col-2" type="number" max="20" min="1">
+                                    <div  class="col-6 d-flex justify-content-end"><strong>$2344</strong></div>
+                                </section>
+                            </li>
+                               
+                            
+                        </ul>
+                         <section class="row justify-content-around">
+                            <span class="col-5">Total Amount</span>
+                            <span class="col-5 d-flex justify-content-end">00</span>
+                         </section>
+                    </div>
+                       -->
+            </section>
+
+            <section class="row  justify-content-around  total">
+                <span class="col-5  d-flex">Total Amount</span>
+                <span class="col-6  d-flex justify-content-end" id="Total"> </span>
+            </section>
+
+        </aside>
 
     </main>
+
+
+
+
+
 
 
 

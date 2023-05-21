@@ -1,152 +1,155 @@
-function _para() {
-    const _inp = document.getElementById('input')
-    let y = _inp.value
+let i = 0
+const _cart = document.getElementById("cart")
+const cartNumber = document.getElementById("cartNumbers")
+const _addToCart = document.getElementById("addToCart")
+const _cartNumber = document.getElementById("_cartNumber")
+const _total = document.getElementById('Total')
 
-    
+let _clocs = document.querySelector('.bi-x-lg')
 
-    const ursll = `https://restcountries.com/v3.1/name/${y}`
+_cart.addEventListener("click", function (e) {
+    e.preventDefault()
+    document.querySelector('.aside').style.transform = 'translateX(0%)'
+})
+_clocs.addEventListener("click", function () {
 
-    //const _url = `https://restcountries.com/v3.1/name/${y}`;
-    // 
-    axios(ursll)
-       .then(response => {
-          // const desc = `${response.weather[0]["langu"]}`
-          console.log(response);
-          console.log(response.data);
+    document.querySelector('.aside').style.transform = 'translateX(100%)'
+})
 
-          let temp = response.data
-          console.log(temp);
-          document.querySelector('.search').innerText =""
-          temp.map(function (val) {
-             console.log(val);
+const _serach = document.getElementById("serach")
 
-             document.getElementById("list").innerHTML = ""
+ function serach(e){
+    //e.preventDefault()
+    let temp = _serach.value
+   // console.log(temp);
+    const url = `https://dummyjson.com/products/search?q=${temp}`
+    axios(url)
+    .then(res=>{
+       let para = res.data
+        let self = para.products
+        
+      self.map((val)=>{
+       /// document.getElementById("_ul").innerHTML =""
+        let _li = document.createElement("li")
+        _li.classList.add('col-8', 'row', 'justify-content-center')
+          _li.innerHTML +=  `
+          <figure class="col-2 mx-0 px-0">
+          <img class="w-100" src="${val.thumbnail}" alt="">
+         </figure>
+          <div class="col-6">
+              <h3>${val.brand}</h3>
+              <h4 class="">${val.title}</h4>
+              <strong>${val.price}</strong>
 
-             let _li = document.createElement("li")
-              _li.classList.add('col-8')
-             _li.innerHTML = `
-             <div class="row justify-content-around">
-             <h1 class="text-center text-light">${val.name.common}</h1>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3"><b>Capital</b>: ${val.capital}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3">Eng:${val.languages.eng}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3"> ${val.region}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3"> ${val.altSpellings}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3">${val.subregion}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3">${val.borders}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3"><b>Car side</b>: ${val.car.signs} </span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3">${val.tld}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3">${val.name.official}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3"><b>People</b>: ${val.population}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3">${val.continents}</span>
-             <span class="d-flex mt-3 border-bottom mx-3 text-light col-3"><b>Start Of Week</b>: ${val.startOfWeek}</span>
-             
+          </div>
+          `       
+          document.getElementById("_ul").appendChild(_li) 
+      })
+    })
+}
 
-              <img class="col-4 mx-3 mt-2 img" src="${val.flags.png}" alt="flag">
+axios('https://dummyjson.com/products')
+    //.then(res => res.json())
+    .then(resp => {
+        let temp = resp.data
+        // console.log(temp.carts);
+
+        temp = temp.products
+
+        temp.map(function (val) {
+            //  console.log(val);
+            const descrip = val.description
+            const setImg = val.thumbnail
+            const setTitle = val.title
+            const setPrice = val.price
+
+
+            let _figure = document.createElement("figure")
+            _figure.classList.add('col-4', 'px-0', 'mx-0',)
+            _figure.innerHTML = `
+        <img class="w-100" src="${setImg}" alt="">
+
+        <figcaption class="px-3 py-3 row justify-content-center">
+             <h4>${setTitle}</h4>
+             <div><strong>$${setPrice}</strong></div>
+             <div>
             
+                <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
+                <span>reviews</span>
+                <h4>${val.brand}</h4>
+             </div>
              
-           </div>
+                <p  class="txt">${descrip}</p>
+                 <button onclick="para('${setImg}', '${setTitle}', '${setPrice}',this)" id="addToCart" data-status='off'> add to <i class="bi bi-cart4"></i></button>
+        </figcaption>
+        `
+            /*  <button class='btn btn-success col-12' onclick="_shop('${x.title}', ${x.rating.count}, '${x.image}', this, '${x.price}')" data-status='off'>shop now</button> */
 
-             ` 
-             _inp.value = ""
-             _inp.focus()
-             document.getElementById("list").appendChild(_li)
-             document.getElementById("form").style.opacity = '0'
-          })
-       })
-       
-       .catch(() => {
-         document.querySelector('.search').innerText = "Search for a valid Countery"
-       })
+            document.querySelector(".product").appendChild(_figure)
 
- }
-// search end 
+        })
 
- const _user = document.getElementById("user")
- const _pas = document.getElementById("pass")
- const _form = document.getElementById("form")
 
- _form.addEventListener("submit", function(e) {
-   e.preventDefault()
-   /*   const myData = {
-      _u: _user.value,
-     _P: _pas.value,
-     
-  }
-    */
 
-     fetch('https://dummyjson.com/auth/login', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({
+    });
 
-             username: _user.value,
-             password: _pas.value,
-             // expiresInMins: 60, // optional
-         })
-     })
-         .then(res => res.json())
-         .then(mydata => {
-          /*    mydata.map(function(val){
-                console.log(val);
-             }) */
 
-             setTimeout(() => {
-               if(
-                  mydata.username == _user.value 
-                ){
-               //  alert("ok")
-          
-                 document.getElementById("searchBox").style.opacity = '1'
-                // document.getElementById("searchBox").style.transform='translateX(0%)'
-                 document.getElementById("form").style.opacity = '0'
-                 document.getElementById(".token")
-                } else{
-                 //alert("hello")
-                 document.getElementById('msgform').innerText = "Enter for a valid username"
-                // para()
-                }
-               
-             }, 1000)
-                
-             
-         })
-         
- })
- 
- 
 
- let _height = document.querySelector(".token").clientHeight 
- document.querySelector(".token").style.height = '0'
-function para(e){
- //  e.preventDefault()
- setTimeout(() => {
-  // document.querySelector(".token").style.opacity = '1'
-   document.querySelector(".token").style.height = _height + "px"
- }, 1000);
+  function para(img, title, price, para) {
+    let temp = para.getAttribute('data-status')
+    let priceTotal = Number(price)
 
- 
+
+    if (temp == 'off') {
+
+
+        i++
+
+        _total.innerHTML = priceTotal
+        cartNumber.innerHTML = i
+        _cartNumber.innerHTML = i
+        let _div = document.createElement("div")
+        _div.classList.add('row', 'border-bottom', 'mt-2', 'py-3')
+
+        _div.innerHTML = `
+                    
+                    
+                     <figure class="col-3">
+                     <img class="w-100" src="${img}" alt="">
+                     </figure>  <p class="col-9  fw-bold">${title}</p>
+                     <strong  class="col-4 d-flex justify-content-end">${price}</strong>
+                `
+        document.getElementById('lists').appendChild(_div)
+        para.removeAttribute('data-status')
+        total()
+    }
+
+    //<input type='number' min=0 max=${y} value=1>
+}
+
+function total() {
+    const myArr = []
+
+    let _div = document.querySelectorAll('#lists>div')
+    _div.forEach(function (val) {
+        let _child = val.children
+        
+        const card = {
+            allPrice: Number(_child[2].innerHTML),
+        }
+        console.log(card);
+
+        myArr.push(card)
+    })
+    console.log(myArr);
+    let total = 0
+    myArr.map(function (para) {
+        total += para.allPrice
+    })
+    _total.innerHTML = total
+
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* const userData = {
-   username: 'kminchelle',
-    password: '0lelplR',
-
-} */
